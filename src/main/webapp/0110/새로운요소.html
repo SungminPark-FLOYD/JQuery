@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        function proc1() {
+            //문자열 선택arr[rand] - textNode로 생성
+            vtext = document.createTextNode("Hello");
+
+            //p태그 생성
+            vp = document.createElement('p');
+            vp.setAttribute("class", "pp");
+            vp.onclick = function() {
+                alert("hello JS~~")
+            }
+            //p태그에 vtext를 추가
+            vp.appendChild(vtext);
+
+            //result1접근 - p태그 추가
+            res = document.getElementById('result1');
+            res.appendChild(vp);
+        }
+
+        function proc2() {
+            //새로운 태그 만들기
+            vhtml = $('<p class="pp" onclick="hello()">Hello</p>');
+            //result2에 추가
+            $('#result2').append(vhtml);
+
+        }
+        function hello() {
+            alert("Hello JQuery~~")
+        }
+
+        function proc3() {
+            // vp = $('<p></p>', {속성들})
+            vp = $('<p/>' , {
+                'class' : 'pp',
+                'id' : 'p1',
+                'text' : 'hello',
+                'click' : function () {
+
+                    cr = Math.floor(Math.random() * 256);
+                    cg = Math.floor(Math.random() * 256);
+                    cb = Math.floor(Math.random() * 256);
+                    //alert("hello");
+                    //this.style.color = 'red'
+                    $(this).css('font-size', '+=5px');
+                    $(this).css('color', `rgb(${cr}, ${cg}, ${cb})`);
+                }
+            })
+
+            //result3에 추가한다
+            $('#result3').append(vp);
+
+            //appendTo는 순서가 반대로 된다.
+            //$(vp).appendTo($('#result3'));
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <h4></h4>
+    <input type="button" value="확인" onclick="proc1()">
+    <br><Br>
+    <div id="result1"></div>
+</div>
+<div class="box">
+    <h4></h4>
+    <input type="button" value="확인" onclick="proc2()">
+    <br><Br>
+    <div id="result2"></div>
+</div>
+<div class="box">
+    <h4></h4>
+    <input type="button" value="확인" onclick="proc3()">
+    <br><Br>
+    <div id="result3"></div>
+</div>
+
+</body>
+</html>

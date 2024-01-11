@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            //btn1검색
+            $('#btn1').on('click', function () {
+                // hList = document.getElementsByTagName('h1');
+                hList = document.querySelectorAll('#result1 h1');
+
+                for(i=0; i<hList.length; i++) {
+
+                    hList[i].style.color = 'blue';
+                }
+                hList[0].style.color = 'red';
+                hList[1].style.color = 'green';
+
+                $(hList[2]).css('background','gray');
+                $(hList[3]).css('background','pink');
+            })
+
+            //brn2검색
+            $('#btn2').on('click', function () {
+                hList = $('#result2 h1');
+                hList.css('color', 'red');
+
+                hList.eq(1).css('color','green');
+
+                //이거 안됨
+                //dom -> jquery : ok
+                //jquery -> dom : x
+                // hList[0].css('color', 'orange');
+                hList[0].style.color = 'blue'; //ok
+            })
+        })
+    </script>
+
+
+</head>
+<body>
+<div class="box">
+    <h4></h4>
+    <input type="button" value="확인" id="btn1">
+    <br><Br>
+    <div id="result1">
+        <h1>무궁화 꽃이 피었습니다</h1>
+        <h1>무궁화 꽃이 피었습니다</h1>
+        <h1>무궁화 꽃이 피었습니다</h1>
+        <h1>무궁화 꽃이 피었습니다</h1>
+        <h1>무궁화 꽃이 피었습니다</h1>
+    </div>
+</div>
+<div class="box">
+    <h4></h4>
+    <input type="button" value="확인" id="btn2">
+    <br><Br>
+    <div id="result2">
+        <h1>무궁화 꽃이 피었습니다</h1>
+        <h1>무궁화 꽃이 피었습니다</h1>
+        <h1>무궁화 꽃이 피었습니다</h1>
+        <h1>무궁화 꽃이 피었습니다</h1>
+        <h1>무궁화 꽃이 피었습니다</h1>
+    </div>
+</div>
+</body>
+</html>
