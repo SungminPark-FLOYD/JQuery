@@ -25,8 +25,8 @@
         div#title {
             background-color: #111111;
             border-radius: 10px;
-            margin: 5px;
-            height: 10%;
+            margin: 1%;
+            height: 70px;
             font-style: revert;
             font-size: large;
             color: white;
@@ -125,6 +125,13 @@
             <li><a href="./0111/동적이미지생성.html">동적이미지생성.html </a> </li>
             <li><a href="./0111/속성선택자.html">속성선택자.html </a> </li>
             <li><a href="./0111/형제선택자.html">형제선택자.html </a> </li>
+        </ul>
+    </div>
+    <div class="dd">
+        <h4 class="title">0112</h4>
+        <ul>
+            <li><a href="./0112/기본필터.html">기본필터.html </a> </li>
+            <li><a href="./0112/내용필터.html">내용필터.html </a> </li>
         </ul>
     </div>
 </div>
