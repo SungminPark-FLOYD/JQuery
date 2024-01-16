@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        //empty메소드는 선택된 요소의 자식요소를 모두 지운다
+        //remove메소드는 선택퇸 요소를 포함해 자식요소를 모두 지운다.
+        $(() => {
+            $('#remove').on('click', function () {
+                $('#res1').remove();
+            })
+
+            $('#empty').on('click', function () {
+                $('#res2').empty();
+            })
+        })
+    </script>
+    <style>
+        #res1, #res2{
+            background: gold;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h4> </h4>
+    <input type="button" value="remove" id="remove">
+    <input type="button" value="empty" id="empty">
+    <br><br>
+    <div id="res1">
+        무궁화 꽃이 피었습니다<br>
+        무궁화 꽃이 피었습니다<br>
+        무궁화 꽃이 피었습니다<br>
+        무궁화 꽃이 피었습니다<br>
+    </div>
+    <div id="res2">
+        무궁화 꽃이 피었습니다<br>
+        무궁화 꽃이 피었습니다<br>
+        무궁화 꽃이 피었습니다<br>
+        무궁화 꽃이 피었습니다<br>
+    </div>
+</div>
+</body>
+</html>

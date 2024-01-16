@@ -38,7 +38,7 @@
                     if(vtag == "INPUT") {
                         str += vtag + "=> " + $(this).attr('name') + " : ";
                         str += $(this).val() + "<br>";
-                    }else{
+                    }else {
                         str += vtag + "=> " + $(this).html() + "<br>";
                     }
                     // $(this).attr('name');
@@ -58,7 +58,7 @@
                     if(vtag == "INPUT") {
                         str += vtag + "=> " + $(this).attr('name') + " : ";
                         str += $(this).val() + "<br>";
-                    }else{
+                    }else if(vtag != "BR"){
                         str += vtag + "=> " + $(this).html() + "<br>";
                     }
                     // $(this).attr('name');

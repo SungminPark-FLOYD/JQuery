@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <style>
+        .ancestors * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+    <script>
+        // $(document).ready(function () {})
+        $(() => {
+            $('#parent').on('click', function () {
+                //부모
+                $('span').parent().css({
+                    'border' : '2px solid red'
+                })
+            })
+            $('#parents').on('click', function () {
+                //모든 부모
+                $('span').parents().css({
+                    'border' : '2px solid green'
+                })
+            })
+            $('#parents_se').on('click', function () {
+                //부모의 선택자만
+                $('span').parents('ul').css({
+                    'border' : '2px solid hotpink'
+                })
+            })
+            $('#parent_unt').on('click', function () {
+
+                //부모의 선택자의 자식요소
+                $('span').parentsUntil('#res1').css({
+                    'border' : '2px solid gold'
+                })
+            })
+
+            $('.btn').on('click', function () {
+                vparents = $(this).parents('.result');
+                vparents.find('span').css('background', 'brown');
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <h4> </h4>
+    <input type="button" value="parent" id="parent">
+    <input type="button" value="parents" id="parents">
+    <input type="button" value="parents_se" id="parents_se">
+    <input type="button" value="parents_unt" id="parent_unt">
+    <br><br>
+    <div id="res1" class="ancestors">
+        <div style="width:500px;">div (great-grandparent)
+            <ul>ul (grandparent)
+                <li>li (direct parent)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="box">
+    <h4> </h4>
+    <br><br>
+    <div id="res2" class="ancestors result">
+        <div style="width:500px;">div (great-grandparent)
+            <ul>ul (grandparent)
+                <li>li (direct parent)
+                    <span>span</span>
+                </li>
+            </ul>
+            <button class="btn" type="button">확인</button>
+        </div>
+    </div>
+    <div id="res3" class="ancestors result">
+        <div style="width:500px;">div (great-grandparent)
+            <ul>ul (grandparent)
+                <li>li (direct parent)
+                    <span>span</span>
+                </li>
+            </ul>
+            <button class="btn" type="button">확인</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

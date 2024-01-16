@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(() => {
+            $('p').on('click', function () {
+                console.log($(this).css('font-size'));
+
+                //부모 찾기
+                if($(this).parent().is('.result')) {
+                    //복사해서 자신의 부모에게 복사하기
+                    $(this).clone(true).css('color', 'red').appendTo($(this).parent());
+                }else alert("작업대상이 아닙니다")
+            })
+
+            $('.pp').on('click', function () {
+                $(this).addClass('bcolor');
+            })
+        })
+    </script>
+    <style>
+        p{
+            background: gold;
+        }
+        .result {
+            background: yellow;
+        }
+
+        .bcolor {
+            color : green;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h4> </h4>
+    <br><br>
+    <div id="res1" class="result">
+        <p>무궁화 꽃이 피었습니다</p>
+    </div>
+
+    <p>은주는 예쁘다</p>
+
+    <div id="res2" class="result">
+        <p>사랑은 늘 도망가</p>
+    </div>
+</div>
+<div class="box">
+    <h4> </h4>
+    <br><br>
+    <div id="res3" class="result">
+        <p class="pp">class=pp 무궁화 꽃이 피었습니다</p>
+    </div>
+
+    <p>은주는 예쁘다</p>
+
+    <div id="res4" class="result">
+        <p class="pp">class=pp 사랑은 늘 도망가</p>
+    </div>
+</div>
+</body>
+</html>

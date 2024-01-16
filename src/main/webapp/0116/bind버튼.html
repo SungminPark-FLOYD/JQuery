@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $('.btn1').on('click', function (){
+                //새로운 버튼을 만든다
+                //바인드를 통해서 생성하면 이벤트는 발생하지 않는다
+                newBtn = $('<input type="button" value="새로운 버튼" class="btn1">');
+
+                //result1에 추가 한다
+                $('#res1').append(newBtn);
+            })
+
+            $('.btn2').on('click', function () {
+                $('.btn1').off('click');
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <h4></h4>
+    <input type="button" value="확인" class="btn1">
+    <input type="button" value="해제" class="btn2">
+    <br><br>
+    <div id="res1">
+
+    </div>
+    <div id="res2">
+
+    </div>
+</div>
+</body>
+</html>

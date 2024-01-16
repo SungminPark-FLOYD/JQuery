@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(() => {
+            $('#btn1').on('click', ()=> {
+                //속성 추가
+                $('#res1 p').attr('class', 'p1');
+                $('#res1 p').attr('title', '무궁화꽃');
+            })
+
+            $('#btn2').on('click', function (){
+                //요소 갯수만큼 함수 실행
+                $('#res2 p').attr('title', function (){
+                    str = $(this).html().substring(0,4);
+                    return str;
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <h4> </h4>
+    <input type="button" value="확인" id="btn1">
+    <br><br>
+    <div id="res1">
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+    </div>
+</div>
+<div class="box">
+    <h4> </h4>
+    <input type="button" value="확인" id="btn2">
+    <br><br>
+    <div id="res2">
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+        <p>무궁화 꽃이 피었습니다</p>
+    </div>
+</div>
+</body>
+</html>

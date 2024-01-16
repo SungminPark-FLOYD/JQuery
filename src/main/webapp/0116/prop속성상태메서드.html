@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(()=> {
+            $('#btn1').on('click', function () {
+                //각 요소의 현재 상태를 얻어온다.
+                vchk = $('#checkTest').prop('checked');
+                vsel = $('#selTest option').eq(2).prop('selected');
+                vtxt = $('#txtTest').prop('readonly');
+                vbtn = $('#runBtn').prop('disabled');
+
+
+                //출력내용
+                str = `체크 : ${vchk} <br>
+                        셀 : ${vsel} <br>
+                        문자 : ${vtxt} <br>
+                        버튼 : ${vbtn} <br>`
+
+                //출력 - res2
+                $('#res2').html(str);
+
+                //상태 변경
+                $('#checkTest').prop('checked', !vchk);
+                $('#selTest option').eq(2).prop('selected', !vsel);
+                $('#txtTest').prop('readonly', !vtxt);
+                $('#runBtn').prop('disabled', !vbtn);
+
+                // if(vchk) $('#checkTest').prop('checked', false);
+                // else $('#checkTest').prop('checked',true);
+
+                // if(vsel) $('#selTest option').eq(2).prop('selected', false);
+                // else $('#selTest option').eq(2).prop('selected', true);
+                //
+                // if(vtxt)  $('#txtTest').prop('readonly', false);
+                // else  $('#txtTest').prop('readonly', true);
+                //
+                // if(vbtn) $('#runBtn').prop('disabled', false);
+                // else $('#runBtn').prop('disabled', true);
+            })
+
+            //이벤트 처리메소드는 bind도 있지만 보통 on을 많이 쓴다 map 표현 알아두면 좋을듯
+            //기존에 있던 요소에만 이벤트 적용 가능
+            // $(요소).bind('type', function(){})
+            //$(요소).on(type, function(){})
+
+            //delegate는 동적으로 새로 생성된 요소에서도 이벤트를 적용 시킬 수 있다
+            // => $(document).delegate('새로운요소', 'type', function() {})
+            // => $(document).on('type', '새로운 요소', function(){})
+
+            //trigger 매치된 요소에있는 이벤트를 모두 처리한다
+
+
+                $('#all').on('change', function (){
+                //현재 이벤트 실행대상(this)의 checked상태 값을 가져온다
+                vchk = $(this).prop('checked');
+
+                //class=chk 인 요소에 vchk값으로 checked속성을 설정
+                $('.chk').prop('checked', vchk);
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <h4>지금 현재 상태를 반대 상태로 바꾼다</h4>
+    <input type="button" value="확인" id="btn1">
+    <br><br>
+    <div id="res1">
+        <form>
+            체크박스(라디오버튼) : <input type="checkbox" id="checkTest" checked>
+            <br><br>리스트박스(select객체) :
+            <select id="selTest">
+            <option value="1">하나</option>
+            <option value="2">둘</option>
+            <option value="3" selected >셋</option>
+            <option value="4">넷</option>
+            </select><br><br>
+            text객체 (readonly) :
+            <input type="text" value="가나다" id="txtTest">
+            <br><br>
+            button객체(disabled) :
+            <input type="button" value="실행" id="runBtn" onclick="alert('hello')">
+        </form>
+    </div>
+    <div id="res2">
+
+    </div>
+</div>
+<div class="box">
+    <h4>상태값 설정</h4>
+    <input type="button" value="확인" id="btn2">
+    <br><br>
+    <div id="res3">
+        <input id="all" type="checkbox" value="전체선택">전체선택
+        <br><br>
+        <input class="chk" type="checkbox" value="1">1
+        <input class="chk" type="checkbox" value="2">2
+        <input class="chk" type="checkbox" value="3">3
+        <input class="chk" type="checkbox" value="4">4
+        <input class="chk" type="checkbox" value="5">5
+    </div>
+    <div id="res4">
+
+    </div>
+</div>
+</body>
+</html>

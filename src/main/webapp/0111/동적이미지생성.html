@@ -32,7 +32,10 @@
                     }
                 });
                 //result1에 추가
-                $('#result1').append(vimg);
+                // $('#result1').append(vimg);
+
+                //순서 반대로도 가능하다.
+                $(vimg).appendTo($('#result1'));
             })
         })
 
