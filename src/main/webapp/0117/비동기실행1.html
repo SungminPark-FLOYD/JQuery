@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        let xhr = new XMLHttpRequest();
+<!--        순수 JS로 처리하는 방법-->
+        // window.onload=function (){
+        //     vsend = document.getElementById('send');
+        //     vsend.addEventListener('click', sendProd);
+        // }
+        // sendProd = function () {
+        //
+        // }
+
+        //비동기 - post
+        $(() => {
+            $('#send').on('click', ()=> {
+                //입력한 값을 가져온다
+                // document.ff.id.value()
+                idVal = $('#id').val().trim();
+                nameVal = $('#name').val().trim();
+
+                data = "id=" + idVal + "&name=" + nameVal;
+
+                //요청
+                xhr.open("POST", "비동기1.jsp");
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send(data);
+                //응답
+                xhr.onreadystatechange = function () {
+                    alert(this.readyState);
+                    if(this.readyState == 4 && this.status == 200){
+
+                        res = this.responseText;
+
+                        $('#res2').html(res);
+                    }
+                }
+            })
+
+            //비동기 get
+            $('#gsend').on('click', ()=> {
+                let idVal = $('#id3').val().trim();
+                let nameVal = $('#name3').val().trim();
+
+                //요청
+                //get 방식은 주소값과 true false붙이기
+                xhr.open("get", `비동기1.jsp?id=${idVal}&name=${nameVal}`, true);
+                xhr.send();
+                //응답
+                xhr.onreadystatechange = function () {
+                    if(this.readyState == 4 && this.status == 200) {
+                        res = this.responseText;
+
+                        $('#res3').html(res);
+                    }
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <h4> 동기방식-post </h4>
+    <br><br>
+    <div id="result1">
+        <form action="./비동기1.jsp" method="post">
+            아이디<input type="text" name="id"><br>
+            이름<input type="text" name="name"><br>
+            <input type="submit" value="전송">
+        </form>
+    </div>
+</div>
+<div class="box">
+    <h4> 비동기방식-post </h4>
+    <br><br>
+    <div id="result2">
+        <form name="ff">
+            아이디<input type="text" id="id" name="id"><br>
+            이름<input type="text" id="name" name="name"><br>
+            <input type="button" id="send" value="전송">
+        </form>
+    </div>
+    <div id="res2"></div>
+</div>
+<div class="box">
+    <h4> 비동기방식-post </h4>
+    <br><br>
+    <div id="result3">
+        <form name="ff">
+            아이디<input type="text" id="id3" name="id"><br>
+            이름<input type="text" id="name3" name="name"><br>
+            <input type="button" id="gsend" value="전송">
+        </form>
+    </div>
+    <div id="res3"></div>
+</div>
+</body>
+</html>
