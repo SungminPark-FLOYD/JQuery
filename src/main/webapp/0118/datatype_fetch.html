@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+
+
+
+        function textProc() {
+
+            fetch("http://localhost/0117/text.jsp").then(resp => {
+                console.log('resp', resp);
+
+                return resp.text();
+            }).then(data => {
+                let vdata = data.split("/");
+
+                let code = "<ul>";
+                vdata.forEach((str, i) => {
+                    code += `<li>${str}</li>`;
+                })
+                code += "</ul>";
+
+                $('#result1').html(code);
+            });
+        }
+
+        arrProc = () => {
+            fetch("http://localhost/0117/arr.jsp")
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    let code = "<ol>";
+
+                    data.forEach((str,i) => {
+                        code += `<li>${str}</li>`;
+                    })
+                    code += "</ol>";
+
+                    $('#result2').html(code);
+                })
+        }
+
+        objProc = () => {
+            fetch("http://localhost/0117/obj.jsp").then(response => {
+                return response.json();
+
+            }).then(data => {
+                let code = `이름 : ${data.name}<br> 주소 : ${data.addr} <br> 연락처 : ${data.tel} <br>`;
+
+                $('#result3').html(code);
+            });
+        }
+
+        obArrProc = () => {
+            fetch("http://localhost/0117/objArr.jsp").then(response => {
+                return response.json();
+            }).then(data => {
+                let code = "";
+                data.forEach((str, index) => {
+                    code += `${index}번째 정보 >> <br>`;
+                    code += `이름 : ${str.name}<br> 주소 : ${str.addr} <br> 연락처 : ${str.tel} <br><br>`;
+                });
+
+                $('#result4').html(code);
+            });
+        }
+    </script>
+    <style>
+        #content{
+            display: flex;
+            flex-direction: row;
+        }
+        .box div .res{
+            flex: 25%;
+            border:2px dotted blue;
+            /*flex할때 border나 padding같은 요소같은 것을 포함시키기 위해*/
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h4> </h4>
+    <input type="button" value="text" onclick="textProc()">
+    <input type="button" value="arr" onclick="arrProc()">
+    <input type="button" value="jsonObj" onclick="objProc()">
+    <input type="button" value="jsonObArr" onclick="obArrProc()">
+    <br><br>
+    <div id="content">
+        <div id="result1" class="res"></div>
+        <div id="result2" class="res"></div>
+        <div id="result3" class="res"></div>
+        <div id="result4" class="res"></div>
+    </div>
+</div>
+</body>
+</html>

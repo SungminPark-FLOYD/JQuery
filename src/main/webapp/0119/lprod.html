@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(()=> {
+            $('#btn1').on('click', ()=> {
+                $.ajax({
+                    url: '/0119/LprodServlet.jsp',
+                    type:'get',
+                    success: res =>{
+                        alert("성공")
+                        code = "<table border='1'>";
+                        code += "<tr><td>lprod_id</td>";
+                        code += "<td>lprod_gu</td>";
+                        code += "<td>lprod_nm</td></tr>";
+
+                        res.forEach((str, i) =>{
+                            code += `<tr><td>${str.lprod_id}</td>`;
+                            code += `<td>${str.lprod_gu}</td>`;
+                            code += `<td>${str.lprod_nm}</td></tr>`;
+                        })
+
+                        code += "</table>";
+
+                        $('#result1').html(code);
+                    },
+                    error:function (xhr){
+                        alert("상태 : " + xhr.status)
+                    },
+                    dataType:'json'
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <h4> </h4>
+    <input type="button" value="lprodList" id="btn1">
+
+    <br><br>
+    <div id="result1">
+    </div>
+</div>
+</body>
+</html>

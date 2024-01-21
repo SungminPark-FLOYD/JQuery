@@ -169,6 +169,20 @@
             <li><a href="./0117/비동기실행1.html">비동기실행1.html </a> </li>
         </ul>
     </div>
+    <div class="dd">
+        <h4 class="title">0118</h4>
+        <ul>
+            <li><a href="./0118/ajax_datatype.html">ajax_datatype.html </a> </li>
+            <li><a href="./0118/datatype_fetch.html">datatype_fetch.html </a> </li>
+        </ul>
+    </div>
+    <div class="dd">
+        <h4 class="title">0119</h4>
+        <ul>
+            <li><a href="./0119/lprod.html">promise실행.html </a> </li>
+            <li><a href="./0119/member.html">데이터타입별수행.html </a> </li>
+        </ul>
+    </div>
 </div>
 </body>
 </html>
