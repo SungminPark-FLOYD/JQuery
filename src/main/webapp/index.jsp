@@ -179,8 +179,14 @@
     <div class="dd">
         <h4 class="title">0119</h4>
         <ul>
-            <li><a href="./0119/lprod.html">promise실행.html </a> </li>
-            <li><a href="./0119/member.html">데이터타입별수행.html </a> </li>
+            <li><a href="./0119/lprod.html">lprod.html </a> </li>
+            <li><a href="./0119/member.html">member.html </a> </li>
+        </ul>
+    </div>
+    <div class="dd">
+        <h4 class="title">0122</h4>
+        <ul>
+            <li><a href="./0122/lprod_prod.html">lprod_prod.html </a> </li>
         </ul>
     </div>
 </div>
