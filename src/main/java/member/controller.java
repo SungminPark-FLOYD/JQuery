@@ -1,5 +1,7 @@
 package member;
 
+import buyer.service.BuyerServiceImpl;
+import buyer.vo.BuyerVo;
 import member.service.MemberServiceImpl;
 import member.vo.MemberVo;
 
@@ -7,13 +9,12 @@ import java.util.List;
 
 public class controller {
     public static void main(String[] args) {
-        MemberServiceImpl service = MemberServiceImpl.getInstance();
+        BuyerServiceImpl service = BuyerServiceImpl.getInstance();
 
-        List<MemberVo> list = service.getAllMember();
+        BuyerVo vo = service.getAllBuyer("P10102");
 
-        for (MemberVo vo : list) {
-            System.out.println(vo.getMem_id());
-        }
+        vo.toString();
     }
+
 
 }

@@ -16,9 +16,10 @@
                 let prod_id = $('option:selected', this).val();
 
                 $.ajax({
-                    url : '/0122/ProdServlet.jsp',
-                    type:'get',
-                    data:'prod_id=' + prod_id,
+                    url : '/0122/ProdServlet2.jsp',
+                    type:'post',
+                    // data:'prod_id=' + prod_id,
+                    data : JSON.stringify({"prod_id" : prod_id}),
                     success : function (res) {
                         code="<table class=\"table table-striped-columns\" border='1'>";
                         code += "<tr><td>항목</td><td>내용</td></tr>"
@@ -52,9 +53,9 @@
                     url: '/0122/ProdServlet.jsp',
                     type: 'post',
                     // data: 'lprod_gu=' + lprod_gu,
-                    data : { "lprod_gu" : lprod_gu },
+                    // JSON형테의 데이터를 직렬화한다, 보내는 id값은 DB의 컬럼명과 일치시킨다
+                    data : JSON.stringify({ "prod_lgu" : lprod_gu }),
                     success : function (res) {
-
                         code="";
                         if(res.flag == "ok"){
                             $.each(res.datas, function (i,v){

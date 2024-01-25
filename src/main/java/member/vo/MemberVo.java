@@ -6,8 +6,8 @@ public class MemberVo {
     private String mem_name;
     private String mem_bir;
     private String mem_zip;
-    private String mem_addr1;
-    private String mem_addr2;
+    private String mem_add1;
+    private String mem_add2;
     private String mem_hp;
     private String mem_mail;
 
@@ -55,19 +55,19 @@ public class MemberVo {
     }
 
     public String getMem_addr1() {
-        return mem_addr1;
+        return mem_add1;
     }
 
     public void setMem_addr1(String mem_addr1) {
-        this.mem_addr1 = mem_addr1;
+        this.mem_add1 = mem_addr1;
     }
 
     public String getMem_addr2() {
-        return mem_addr2;
+        return mem_add2;
     }
 
     public void setMem_addr2(String mem_addr2) {
-        this.mem_addr2 = mem_addr2;
+        this.mem_add2 = mem_addr2;
     }
 
     public String getMem_hp() {

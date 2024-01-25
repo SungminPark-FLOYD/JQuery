@@ -1,7 +1,10 @@
 package member.dao;
 
 import member.vo.MemberVo;
+import member.vo.ZipVo;
+import org.apache.ibatis.session.SqlSession;
 import util.DBUtil3;
+import util.mybatisUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -62,5 +65,58 @@ public class MemberDaoImpl implements IMemberDao{
         }
 
         return memList;
+    }
+
+    @Override
+    public String selectById(String memId) {
+        String mem_id = null;
+        SqlSession session = null;
+
+        try {
+            session = mybatisUtil.getSqlSession();
+            mem_id = session.selectOne("member.selectById", memId);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(session != null) session.close();
+        }
+        return mem_id;
+    }
+
+    @Override
+    public List<ZipVo> selectByDong(String dong) {
+        List<ZipVo> zipList = null;
+        SqlSession session = null;
+
+        try {
+            session = mybatisUtil.getSqlSession();
+            zipList = new ArrayList<ZipVo>();
+            zipList = session.selectList("member.selectByDong", dong);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(session != null) session.close();
+        }
+        return zipList;
+    }
+
+    @Override
+    public int insertMemeber(MemberVo memVo) {
+        int cnt = 0;
+        SqlSession session = null;
+
+        try {
+            session = mybatisUtil.getSqlSession();
+            cnt = session.insert("member.insertMember", memVo);
+            if(cnt > 0) session.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(session != null) session.close();
+        }
+        return cnt;
     }
 }
